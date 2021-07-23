@@ -1,8 +1,20 @@
+mod commands;
+// mod hooks;
+
 use std::{
     collections::{HashMap, HashSet},
     env,
     sync::Arc,
 };
+
+use commands::{
+    ping::*,
+    about::*,
+};
+
+// use hooks::{
+//     hooks::*,
+// };
 
 use serenity::prelude::*;
 use serenity::{
@@ -31,7 +43,6 @@ use serenity::{
     utils::{content_safe, ContentSafeOptions},
 };
 use tokio::sync::Mutex;
-
 
 #[group]
 #[commands(ping, about)]
@@ -155,22 +166,6 @@ async fn owner_check(
     if msg.author.id != 7 {
         return Err(Reason::User("Lacked owner permission".to_string()));
     }
-
-    Ok(())
-}
-
-
-#[command]
-async fn ping(ctx: &Context, msg: &Message) -> CommandResult {
-    println!("received ping!");
-    msg.reply(ctx, "Pong!").await?;
-
-    Ok(())
-}
-
-#[command]
-async fn about(ctx: &Context, msg: &Message) -> CommandResult {
-    msg.reply(ctx, "about").await?;
 
     Ok(())
 }
