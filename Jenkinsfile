@@ -17,7 +17,7 @@ pipeline {
       steps {
         sh '''cd rasis
 
-cargo build'''
+cargo build --release'''
       }
     }
 
