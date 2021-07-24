@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'rust:alpine3.12'
+      image 'rust:1.53-buster'
     }
 
   }
@@ -11,7 +11,9 @@ pipeline {
         sh '''rustc --version
 
 ls
-'''
+
+apt-get update -y
+apt-get install -y gcc-aarch64-linux-gnu'''
       }
     }
 
