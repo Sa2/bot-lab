@@ -9,7 +9,7 @@ pipeline {
     stage('setup') {
       steps {
         sh '''rustc --version
-who
+users
 apt-get update
 apt-get install -y gcc-aarch64-linux-gnu'''
       }
