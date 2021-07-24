@@ -36,7 +36,7 @@ cargo build --release'''
         sh '''ls -l
 ls -l rasis
 
-# docker build -t rasis-bot:latest ./Dockerfiles/runtime/Dockerfile
+
 '''
       }
     }
