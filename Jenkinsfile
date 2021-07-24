@@ -2,6 +2,7 @@ pipeline {
   agent {
     dockerfile {
       filename './Dockerfiles/rust-builder-aarch64/Dockerfile'
+      args '--privileged'
     }
 
   }
@@ -31,7 +32,6 @@ cargo build --release'''
     }
 
     stage('Containerize') {
-      agent any
       steps {
         sh '''ls -l
 ls -l rasis
