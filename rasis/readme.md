@@ -17,6 +17,19 @@ $ cargo install --force cargo-make
 
 cross
 
+`rustup install stable-aarch64-unknown-linux-gnu` linux用のビルド環境をインストールする
+
 ```
 $ cargo install cross 
+$ rustup install stable-aarch64-unknown-linux-gnu
+```
+
+build for mac
+```
+$ cargo build --target x86_64-apple-darwin
+```
+
+build for raspi
+```
+$ cargo build --target aarch64-unknown-linux-gnu
 ```
