@@ -21,6 +21,12 @@ cargo build'''
       }
     }
 
+    stage('Save') {
+      steps {
+        archiveArtifacts(allowEmptyArchive: true, artifacts: 'rasis/target')
+      }
+    }
+
   }
   environment {
     ENV_TEST = 'TEST'
