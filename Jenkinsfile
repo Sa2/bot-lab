@@ -1,9 +1,11 @@
 pipeline {
-  agent none
+  agent {
+    docker { image 'rust:alpine3.12' }
+  }
   stages {
-    stage('test') {
+    stage('setup') {
       steps {
-        echo 'test'
+        sh 'rustc --version'
       }
     }
 
