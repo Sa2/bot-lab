@@ -15,6 +15,14 @@ ls
       }
     }
 
+    stage('build') {
+      steps {
+        sh '''cd rasis
+
+cargo build'''
+      }
+    }
+
   }
   environment {
     ENV_TEST = 'TEST'
