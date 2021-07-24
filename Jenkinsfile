@@ -23,6 +23,7 @@ cargo build'''
 
     stage('Save') {
       steps {
+        sh 'ls'
         archiveArtifacts(allowEmptyArchive: true, artifacts: 'rasis/target')
       }
     }
