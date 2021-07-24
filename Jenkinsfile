@@ -9,8 +9,6 @@ pipeline {
     stage('setup') {
       steps {
         sh '''rustc --version
-ls
-cat /etc/debian_version
 
 sudo apt-get update
 sudo apt-get install -y gcc-aarch64-linux-gnu'''
