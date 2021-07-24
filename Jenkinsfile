@@ -23,8 +23,10 @@ cargo build --release'''
 
     stage('Save') {
       steps {
-        sh 'ls rasis/target/release'
-        archiveArtifacts(allowEmptyArchive: true, artifacts: 'rasis/target')
+        sh '''ls -l rasis/target/release
+
+'''
+        archiveArtifacts 'rasis/target/release/rasis'
       }
     }
 
