@@ -1,5 +1,5 @@
 mod commands;
-// mod hooks;
+mod helper;
 
 use std::{
     collections::{HashMap, HashSet},
@@ -12,61 +12,47 @@ use commands::{
     about::*,
 };
 
-// use hooks::{
-//     hooks::*,
-// };
+use helper::{
+    hooks::*,
+};
+
+use helper::{
+    container::*,
+};
 
 use serenity::prelude::*;
 use serenity::{
     async_trait,
-    client::bridge::gateway::{ShardId, ShardManager},
     framework::standard::{
-        buckets::{LimitedFor, RevertBucket},
-        help_commands,
-        macros::{check, command, group, help, hook},
+        // buckets::{LimitedFor, RevertBucket},
+        // help_commands,
+        // macros::{check, command, group, help, hook},
+        macros::{check, group},
         Args,
-        CommandGroup,
+        // CommandGroup,
         CommandOptions,
-        CommandResult,
-        DispatchError,
-        HelpOptions,
+        // CommandResult,
+        // DispatchError,
+        // HelpOptions,
         Reason,
         StandardFramework,
     },
     http::Http,
     model::{
-        channel::{Channel, Message},
+        // channel::{Channel, Message},
+        channel::Message,
         gateway::Ready,
-        id::UserId,
-        permissions::Permissions,
+        // id::UserId,
+        // permissions::Permissions,
     },
-    utils::{content_safe, ContentSafeOptions},
+    // utils::{content_safe, ContentSafeOptions},
 };
-use tokio::sync::Mutex;
 
 #[group]
 #[commands(ping, about)]
 struct General;
 
-
-// A container type is created for inserting into the Client's `data`, which
-// allows for data to be accessible across all events and framework commands, or
-// anywhere else that has a copy of the `data` Arc.
-struct ShardManagerContainer;
-
-impl TypeMapKey for ShardManagerContainer {
-    type Value = Arc<Mutex<ShardManager>>;
-}
-
-
-struct CommandCounter;
-
-impl TypeMapKey for CommandCounter {
-    type Value = HashMap<String, u64>;
-}
-
 struct Handler;
-
 
 #[async_trait]
 impl EventHandler for Handler {
@@ -168,38 +154,4 @@ async fn owner_check(
     }
 
     Ok(())
-}
-
-
-#[hook]
-async fn unknown_command(_ctx: &Context, _msg: &Message, unknown_command_name: &str) {
-    println!("Could not find command named '{}'", unknown_command_name);
-}
-
-#[hook]
-async fn normal_message(_ctx: &Context, msg: &Message) {
-    println!("Message is not a command '{}'", msg.content);
-}
-
-#[hook]
-async fn before(ctx: &Context, msg: &Message, command_name: &str) -> bool {
-    println!("Got command '{}' by user '{}'", command_name, msg.author.name);
-
-    // Increment the number of times this command has been run once. If
-    // the command's name does not exist in the counter, add a default
-    // value of 0.
-    let mut data = ctx.data.write().await;
-    let counter = data.get_mut::<CommandCounter>().expect("Expected CommandCounter in TypeMap.");
-    let entry = counter.entry(command_name.to_string()).or_insert(0);
-    *entry += 1;
-
-    true // if `before` returns false, command processing doesn't happen.
-}
-
-#[hook]
-async fn after(_ctx: &Context, _msg: &Message, command_name: &str, command_result: CommandResult) {
-    match command_result {
-        Ok(()) => println!("Processed command '{}'", command_name),
-        Err(why) => println!("Command '{}' returned error {:?}", command_name, why),
-    }
 }
