@@ -34,6 +34,8 @@ cargo build --release'''
       agent any
       steps {
         sh '''ls -l
+ls -l rasis
+
 # docker build -t rasis-bot:latest ./Dockerfiles/runtime/Dockerfile
 '''
       }
