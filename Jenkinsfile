@@ -29,6 +29,7 @@ cargo build --release'''
         archiveArtifacts 'rasis/target/release/rasis'
       }
     }
+
     stage('Containerize') {
       agent any
       steps {
@@ -37,6 +38,7 @@ docker build -t rasis-bot:latest ./Dockerfiles/runtime/Dockerfile
 '''
       }
     }
+
   }
   environment {
     ENV_TEST = 'TEST'
