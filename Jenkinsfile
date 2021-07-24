@@ -1,7 +1,7 @@
 pipeline {
   agent {
     dockerfile {
-      filename 'Dockerfile'
+      filename '/Dockerfiles/rust-builder-aarch64/Dockerfile'
     }
 
   }
