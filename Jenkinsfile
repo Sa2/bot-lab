@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh '''rustc --version
 users
-apt-get update
+# apt-get update
 apt-get install -y gcc-aarch64-linux-gnu'''
       }
     }
