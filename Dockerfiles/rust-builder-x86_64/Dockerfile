@@ -7,5 +7,5 @@ RUN apt-get update -y && apt-get install -y apt-transport-https ca-certificates 
     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
     apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get install -y docker-ce docker-ce-cli containerd.io && \
-    service docker start
+    apt-get install -y docker-ce docker-ce-cli containerd.io
+CMD [ "service docker start" ]
