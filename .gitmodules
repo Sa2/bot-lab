@@ -1,0 +1,3 @@
+[submodule "rasis/credentials"]
+	path = rasis/credentials
+	url = git@github.com:Sa2/credentials.git
