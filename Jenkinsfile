@@ -10,8 +10,9 @@ pipeline {
     stage('setup') {
       steps {
         sh '''rustc --version
+service docker start
 docker version
-service docker start'''
+'''
       }
     }
 
