@@ -10,7 +10,8 @@ pipeline {
     stage('setup') {
       steps {
         sh '''rustc --version
-        echo $HOME
+pwd
+ls -l $HOME
 service docker start
 docker version
 '''
