@@ -2,7 +2,7 @@ pipeline {
   agent {
     dockerfile {
       filename './Dockerfiles/rust-builder-aarch64/Dockerfile'
-      args '--privileged'
+      args '-u root:sudo --privileged'
     }
 
   }
