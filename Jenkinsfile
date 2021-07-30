@@ -10,8 +10,6 @@ pipeline {
     stage('setup') {
       steps {
         sh '''rustc --version
-pwd
-sudo cat /etc/passwd
 service docker start
 docker version
 '''
