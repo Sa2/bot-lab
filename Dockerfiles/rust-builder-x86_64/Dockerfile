@@ -1,6 +1,6 @@
 FROM rust:1.53-buster
 
-ENV PATH=$PATH:/usr/sbin
+ENV PATH=$PATH:$HOME/bin:/sbin:/usr/sbin:/usr/local/bin
 
 RUN apt-get update -y && apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release && \
     curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
