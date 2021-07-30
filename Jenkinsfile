@@ -11,8 +11,7 @@ pipeline {
       steps {
         sh '''rustc --version
 pwd
-ls -la /root
-ls -la
+cat /etc/passwd
 service docker start
 docker version
 '''
