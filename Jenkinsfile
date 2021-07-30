@@ -38,6 +38,11 @@ cargo build --release'''
       steps {
         sh '''ls -l
 ls -l rasis
+pwd
+
+ls /Dockerfiles/runtime/start.sh
+ls /rasis/target/release/rasis
+ls /rasis/credentials/bot-lab/env.sh
 
 docker build -t rasis-bot:test ./Dockerfiles/runtime
 '''
