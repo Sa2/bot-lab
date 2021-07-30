@@ -11,7 +11,7 @@ pipeline {
       steps {
         sh '''rustc --version
 service docker start
-sleep(5)
+sleep 5
 docker version
 '''
       }
