@@ -34,15 +34,6 @@ cargo build --release'''
         archiveArtifacts 'rasis/target/release/rasis'
       }
     }
-
-    stage('Containerize') {
-      steps {
-        sh '''ls -l
-
-'''
-      }
-    }
-
   }
   environment {
     ENV_TEST = 'TEST'
