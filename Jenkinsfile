@@ -6,10 +6,10 @@ pipeline {
     }
   }
 
-  // triggers {
-  //   pollSCM('H/1 * * * *')
-  // }
-  properties([pipelineTriggers([githubPush()])])
+  triggers {
+    githubPush()
+  }
+  // options([pipelineTriggers([githubPush()])])
 
 
   stages {
