@@ -4,8 +4,12 @@ pipeline {
       filename './Dockerfiles/rust-builder-aarch64/Dockerfile'
       // args '-u root:sudo --privileged'
     }
-
   }
+
+  triggers {
+    pollSCM('H * * * *')
+  }
+
   stages {
     stage('setup') {
       steps {
