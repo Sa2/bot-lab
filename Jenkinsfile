@@ -21,7 +21,6 @@ pipeline {
     stage('build') {
       steps {
         sh '''cd rasis
-
 cargo build --release'''
       }
     }
