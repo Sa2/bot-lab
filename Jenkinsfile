@@ -6,12 +6,6 @@ pipeline {
     }
   }
 
-  triggers {
-    githubPush()
-  }
-  // options([pipelineTriggers([githubPush()])])
-
-
   stages {
     stage('setup') {
       steps {
