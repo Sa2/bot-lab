@@ -6,9 +6,11 @@ pipeline {
     }
   }
 
-  triggers {
-    pollSCM('H/1 * * * *')
-  }
+  // triggers {
+  //   pollSCM('H/1 * * * *')
+  // }
+  properties([pipelineTriggers([githubPush()])])
+
 
   stages {
     stage('setup') {
