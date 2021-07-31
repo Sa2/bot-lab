@@ -36,6 +36,6 @@ cargo build --release'''
     }
   }
   environment {
-    ENV_TEST = 'TEST'
+    ENV_TEST = 'TEST1'
   }
 }
