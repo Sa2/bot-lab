@@ -44,7 +44,7 @@ cargo build --release'''
     stage('Containerize') {
       when {
         expression {
-          env.BRANCH_NAME.contains("master")
+          env.BRANCH_NAME.contains("main")
         }
       }
       steps {
