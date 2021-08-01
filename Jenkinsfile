@@ -5,7 +5,7 @@ pipeline {
     stage('build') {
       agent {
         docker {
-          label 'master'
+          // label 'master'
           image 'rust:1.53-buster'
         }
       }
