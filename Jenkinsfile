@@ -11,6 +11,7 @@ pipeline {
       steps {
         sh '''cd rasis
 cargo build --release'''
+        archiveArtifacts 'rasis/target/release/rasis'
       }
     }
 
