@@ -24,6 +24,7 @@ cargo build --release'''
       steps {
         sh '''pwd
 ls ./scripts/start.sh
+ls -la ./rasis
 ls ./rasis/credentials/bot-lab/env.sh
 ls ./rasis/target/release/rasis
 docker build -t bot-lab-rasis:latest .
