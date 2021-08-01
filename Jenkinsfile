@@ -22,7 +22,7 @@ cargo build --release'''
         }
       }
       steps {
-        sh '''docker build -t bot-lab-rasis:latest .
+        sh '''docker build -t bot-lab-rasis:latest ./Dockerfiles/runtime
 
 '''
         post {
