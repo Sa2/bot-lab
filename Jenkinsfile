@@ -1,37 +1,61 @@
 pipeline {
   agent {
-    dockerfile {
-      filename './Dockerfiles/rust-builder-aarch64/Dockerfile'
-      // args '-u root:sudo --privileged'
-    }
+    any
+    // dockerfile {
+    //   filename './Dockerfiles/rust-builder-aarch64/Dockerfile'
+    //   // args '-u root:sudo --privileged'
+    // }
   }
 
   stages {
-    stage('setup') {
-      steps {
-        sh '''rustc --version
-'''
-      }
-    }
+//     stage('setup') {
+//       steps {
+//         sh '''rustc --version
+// '''
+//       }
+//     }
 
     stage('build') {
+      agent {
+        docker {
+          label 'master'
+          image 'rust:1.53-buster'
+        }
+      }
       steps {
         sh '''cd rasis
 cargo build --release'''
       }
     }
 
-    stage('Save') {
+//     stage('Save') {
+//       when {
+//         expression {
+//           env.BRANCH_NAME.contains("master")
+//         }
+//       }
+//       steps {
+//         sh '''ls -l rasis/target/release
+
+// '''
+//         archiveArtifacts 'rasis/target/release/rasis'
+//       }
+//     }
+    stage('Containerize') {
       when {
         expression {
           env.BRANCH_NAME.contains("master")
         }
       }
       steps {
-        sh '''ls -l rasis/target/release
+        sh '''docker build -t bot-lab-rasis:0.0.1 .
 
 '''
-        archiveArtifacts 'rasis/target/release/rasis'
+        post {
+          always {
+            deleteDir()
+          }
+        }
       }
     }
   }
