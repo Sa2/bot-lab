@@ -48,7 +48,7 @@ cargo build --release'''
         }
       }
       steps {
-        sh '''docker build -t bot-lab-rasis:0.0.1 .
+        sh '''docker build -t bot-lab-rasis:latest .
 
 '''
         post {
