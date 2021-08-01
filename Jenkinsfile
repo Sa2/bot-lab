@@ -22,7 +22,8 @@ cargo build --release'''
 
       }
       steps {
-        sh '''pwd
+        sh '''git submodule update --init --recursive
+pwd
 ls ./scripts/start.sh
 ls -la ./rasis
 ls -la ./rasis/credentials
