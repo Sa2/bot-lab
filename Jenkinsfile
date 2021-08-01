@@ -22,6 +22,11 @@ cargo build --release'''
     }
 
     stage('Save') {
+      when {
+        expression {
+          env.BRANCH_NAME.contains("master")
+        }
+      }
       steps {
         sh '''ls -l rasis/target/release
 
