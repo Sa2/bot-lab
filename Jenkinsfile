@@ -1,11 +1,11 @@
 pipeline {
-  agent {
-    any
-    // dockerfile {
-    //   filename './Dockerfiles/rust-builder-aarch64/Dockerfile'
-    //   // args '-u root:sudo --privileged'
-    // }
-  }
+  agent any
+  // agent {
+  //   dockerfile {
+  //     filename './Dockerfiles/rust-builder-aarch64/Dockerfile'
+  //     // args '-u root:sudo --privileged'
+  //   }
+  // }
 
   stages {
 //     stage('setup') {
