@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build -t bot-lab-rasis:latest .
+docker build -t io.raspberry.local:5000/bot-lab-rasis:latest .
