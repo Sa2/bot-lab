@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bot-lab-rasis
+  labels:
+    app: bot-lab-rasis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bot-lab-rasis
+  template:
+    metadata:
+      labels:
+        app: bot-lab-rasis
+    spec:
+      containers:
+      - name: bot-lab-rasis
+        image: io.raspberry.local:5000/bot-lab-rasis:latest
+        ports:
+        - containerPort: 5001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bot-lab-rasis-service
+spec:
+  selector:
+    app: bot-lab-rasis
+  ports:
+    - port: 5001
+      targetPort: 5001
+  type: LoadBalancer
