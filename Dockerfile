@@ -1,5 +1,5 @@
 FROM gcr.io/distroless/base-debian10
-RUN mkdir -p /app
+ADD ./app /app
 WORKDIR /app
 COPY ./scripts/start.sh /app
 COPY ./rasis/credentials/bot-lab/env.sh /app
