@@ -17,3 +17,10 @@ $ docker run -it --rm -p 5001:5001 --name bot-lab-rasis io.raspberry.local:5000/
 ```
 $ kubectl apply -f k8s-deployment.yaml
 ```
+
+
+containerd で pull する
+
+```
+$ crictl pull io.raspberry.local:5000/bot-lab-rasis:latest
+```
