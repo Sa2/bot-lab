@@ -1,4 +1,5 @@
-FROM gcr.io/distroless/base-debian10
+#FROM gcr.io/distroless/base-debian10
+FROM debian:latest
 ADD ./app /app
 WORKDIR /app
 COPY ./scripts/start.sh /app
