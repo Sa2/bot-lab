@@ -1,5 +1,5 @@
 #FROM gcr.io/distroless/base-debian10
-FROM debian:latest
+FROM debian:stretch-slim
 ADD ./app /app
 WORKDIR /app
 COPY ./scripts/start.sh /app
