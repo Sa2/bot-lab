@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-/root/env.sh
-/root/rasis
+/app/env.sh
+/app/rasis
