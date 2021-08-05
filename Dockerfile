@@ -5,4 +5,4 @@ COPY ./scripts/start.sh /app
 COPY ./rasis/credentials/bot-lab/env.sh /app
 COPY ./rasis/target/release/rasis /app
 WORKDIR /app
-CMD ["start.sh"]
+CMD ["./start.sh"]
