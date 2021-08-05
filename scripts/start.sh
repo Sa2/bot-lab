@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-/app/env.sh
+source /app/env.sh
 /app/rasis
