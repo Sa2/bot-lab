@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: bot-lab-rasis
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
